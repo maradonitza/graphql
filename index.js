@@ -1,24 +1,19 @@
-var { graphql, buildSchema } = require("graphql")
- 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`)
- 
-// The rootValue provides a resolver function for each API endpoint
-var rootValue = {
-  hello() {
-    return "Hello world!"
-  }
-}
- 
-// Run the GraphQL query '{ hello }' and print out the response
-graphql({
-  schema,
-  source: "{ hello }",
-  rootValue
-}).then(response => {
-  console.log(response)
-})
+import express from 'express';
+import {graphqlHTTP} from 'express-graphql';
+import schema from './data/schema';
+
+const app = express();
+const PORT = 8080; // or any port you prefer
+
+app.get('/', (req, res) => {
+    res.send('GraphQL is amazing');
+});
+
+const root = {hello: () => "Hi, I'm Geronimo!"}
+
+app.use('/graphql', graphqlHTTP({
+    schema: schema, 
+    rootValue: root,
+    graphiql: true
+
+}));
