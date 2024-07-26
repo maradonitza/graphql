@@ -6,10 +6,19 @@ const app = express();
 const PORT = 8080; // or any port you prefer
 
 app.get('/', (req, res) => {
-    res.send('GraphQL is amazing');
+    res.send('GraphQL is amazing!!');
 });
 
-const root = {hello: () => "Hi, I'm Geronimo!"}
+const root = { product: () => {
+    return {
+      "id": 324345345435,
+      "name": "Geronimo",
+      "description": "Mel",
+      "price": 33,
+      "soldout": 333
+    }
+  } 
+}
 
 app.use('/graphql', graphqlHTTP({
     schema: schema, 
@@ -17,3 +26,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true
 
 }));
+
+app.listen(PORT, () => {
+  console.log("Running server on localhost:${PORT}/graphql");
+});
