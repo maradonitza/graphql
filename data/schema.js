@@ -1,16 +1,21 @@
 import {buildSchema} from "graphql";
 
+// Construct a schema, using GraphQL schema language
+
 const schema = buildSchema(`
     type Product {
         id: ID
         name: String
         description: String
         price: Float
-        soldout: Boolean
+        colour: String
+        inStock: Boolean
+
     }
     
     type Query {
-        product: Product
+        product: Product,
+        hello: String
     }
 `);
 
