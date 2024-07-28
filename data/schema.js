@@ -15,7 +15,15 @@ const schema = buildSchema(`
     
     type Query {
         product: Product,
-        hello: String
+        hello: String,
+        rollDice(numDice: Int!, numSides: Int): [Int],
+        rollDice2(numDice: Int!, numSides: Int): [Int],
+        playRPS(player1: String, player2: String): String,
+        range(m: Int, n: Int): [Int],
+        greet: String,
+        rand(x: Int): Int,
+        fact(n: Float ): Float 
+
     }
 `);
 

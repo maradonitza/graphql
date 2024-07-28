@@ -2,6 +2,7 @@ import express from "express";
 import { createHandler } from "graphql-http/lib/use/express";
 import { ruruHTML } from "ruru/server";
 import schema from './data/schema';
+import { createRange, factorial, greeting, randomFunction, rockPaperScissors } from "./gameUtils";
 
 
 // The root provides a resolver function for each API endpoint
@@ -18,8 +19,27 @@ const root = {
     }
   },
   hello() {
-    return "Geronimo3"
-  } 
+    return "Geronimo"
+  },
+  rollDice(args) {
+    var output = []
+    for (var i = 0; i < args.numDice; i++) {
+      output.push(1 + Math.floor(Math.random() * (args.numSides || 6)))
+    }
+    return output
+  },
+  rollDice2({numDice, numSides}) {
+    var output = []
+    for (var i = 0; i < numDice; i++) {
+      output.push(1 + Math.floor(Math.random() * (numSides || 6)))
+    }
+    return output
+  },
+  playRPS: rockPaperScissors,
+  range: createRange,
+  greet: greeting,
+  rand: randomFunction,
+  fact: factorial  
 }
  
 var app = express()
