@@ -1,5 +1,4 @@
 import {buildSchema} from "graphql";
-
 // Construct a schema, using GraphQL schema language
 
 const schema = buildSchema(`
@@ -12,6 +11,14 @@ const schema = buildSchema(`
         inStock: Boolean
 
     }
+
+    type Character {
+        name: String
+        coolnessFactor: Int
+        quote: String        
+        getName: String        
+        #getQuote: String
+    }
     
     type Query {
         product: Product,
@@ -22,7 +29,8 @@ const schema = buildSchema(`
         range(m: Int, n: Int): [Int],
         greet: String,
         rand(x: Int): Int,
-        fact(n: Float ): Float 
+        fact(n: Float ): Float,
+        character(choice: Int): Character
 
     }
 `);

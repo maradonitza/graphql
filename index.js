@@ -3,7 +3,7 @@ import { createHandler } from "graphql-http/lib/use/express";
 import { ruruHTML } from "ruru/server";
 import schema from './data/schema';
 import { createRange, factorial, greeting, randomFunction, rockPaperScissors } from "./gameUtils";
-
+import { getCharacter } from "./CharacterStore";
 
 // The root provides a resolver function for each API endpoint
 const root = { 
@@ -39,7 +39,8 @@ const root = {
   range: createRange,
   greet: greeting,
   rand: randomFunction,
-  fact: factorial  
+  fact: factorial,
+  character: getCharacter  
 }
  
 var app = express()

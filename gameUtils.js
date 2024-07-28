@@ -19,8 +19,6 @@ export function rockPaperScissors({player1, player2}) {
     
     // Check for invalid inputs
     const validChoices = Object.keys(rules);
-    // console.log(player1);
-    console.log(player2);
     if (!validChoices.includes(player1) || !validChoices.includes(player2)) {
         return "Invalid input! Choices must be 'rock', 'paper', or 'scissors'.";
     }
@@ -41,10 +39,10 @@ export function rockPaperScissors({player1, player2}) {
 
 // Example usage (can be removed or commented out in production)
 console.log(rockPaperScissors({ player1: 'rock', player2: 'scissors'}));  // Output: Player 1 wins!
-console.log(rockPaperScissors({ player1: 'paper', player2: 'rock'}));     // Output: Player 1 wins!
-console.log(rockPaperScissors({ player1: 'scissors', player2: 'rock'}));  // Output: Player 2 wins!
-console.log(rockPaperScissors({ player1: 'scissors', player2: 'scissors'}));  // Output: It's a tie!
-console.log(rockPaperScissors({ player1: 'rock', player2: 'paper'}));  // Output: Player 2 wins!
+// console.log(rockPaperScissors({ player1: 'paper', player2: 'rock'}));     // Output: Player 1 wins!
+// console.log(rockPaperScissors({ player1: 'scissors', player2: 'rock'}));  // Output: Player 2 wins!
+// console.log(rockPaperScissors({ player1: 'scissors', player2: 'scissors'}));  // Output: It's a tie!
+// console.log(rockPaperScissors({ player1: 'rock', player2: 'paper'}));  // Output: Player 2 wins!
 
 export function greeting() {
     return "Hello Geronimo"
@@ -77,10 +75,10 @@ export function factorial({n}) {
 
 // Example usage
 console.log(factorial({n: 5}));  // Output: 120
-console.log(factorial({n: 0}));  // Output: 1
-console.log(factorial({n: 1}));  // Output: 1
-console.log(factorial({n: 10})); // Output: 3628800
-console.log(factorial({n: -3})); // Output: -1 (Factorial is not defined for negative numbers)
+// console.log(factorial({n: 0}));  // Output: 1
+// console.log(factorial({n: 1}));  // Output: 1
+// console.log(factorial({n: 10})); // Output: 3628800
+// console.log(factorial({n: -3})); // Output: -1 (Factorial is not defined for negative numbers)
 
 /**
  * Returns an array containing all integers between the two given numbers (inclusive),
@@ -104,10 +102,7 @@ export function createRange({a, b}) {
 
 // Example usage
 console.log(createRange({a: 5, b: 10}));  // Output: [5, 6, 7, 8, 9, 10]
-console.log(createRange({a: 10, b: 5}));  // Output: [5, 6, 7, 8, 9, 10]
-console.log(createRange({a: -3, b: 2}));  // Output: [-3, -2, -1, 0, 1, 2]
-console.log(createRange({a: 7, b: 7}));   // Output: [7]
-
-// Export the function for use in other files
-// module.exports = rockPaperScissors;
+// console.log(createRange({a: 10, b: 5}));  // Output: [5, 6, 7, 8, 9, 10]
+// console.log(createRange({a: -3, b: 2}));  // Output: [-3, -2, -1, 0, 1, 2]
+// console.log(createRange({a: 7, b: 7}));   // Output: [7]
 
