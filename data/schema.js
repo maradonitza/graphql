@@ -19,6 +19,18 @@ const schema = buildSchema(`
         getName: String        
         #getQuote: String
     }
+
+    type Quote {
+        id: ID!
+        content: String
+        author: String
+    }
+
+    input QuoteInput {
+        content: String
+        author: String
+    }
+
     
     type Query {
         product: Product,
@@ -30,9 +42,19 @@ const schema = buildSchema(`
         greet: String,
         rand(x: Int): Int,
         fact(n: Float ): Float,
-        character(choice: Int): Character
+        character(choice: Int): Character,
+        getQuote(id: ID!): Quote,
+        getMessage: String
 
     }
+   
+    type Mutation {
+        createQuote(input: QuoteInput): Quote
+        updateQuote(id: ID!, input: QuoteInput): Quote
+        setMessage(message: String): String
+    }
+    
 `);
 
-export default schema;
+export default schema;  
+  

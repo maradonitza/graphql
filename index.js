@@ -4,6 +4,9 @@ import { ruruHTML } from "ruru/server";
 import schema from './data/schema';
 import { createRange, factorial, greeting, randomFunction, rockPaperScissors } from "./gameUtils";
 import { getCharacter } from "./CharacterStore";
+import { createQuote, getQuote, updateQuote } from "./QuoteDb";
+
+// var fakeDb = {}
 
 // The root provides a resolver function for each API endpoint
 const root = { 
@@ -40,7 +43,18 @@ const root = {
   greet: greeting,
   rand: randomFunction,
   fact: factorial,
-  character: getCharacter  
+  character: getCharacter,
+  getQuote: getQuote,
+  createQuote: createQuote,
+  updateQuote: updateQuote,
+  
+  // setMessage({ message }) {
+  //   fakeDb.message = message
+  //   return message
+  // },
+  // getMessage() {
+  //   return fakeDb.message
+  // },
 }
  
 var app = express()
